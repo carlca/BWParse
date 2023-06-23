@@ -1,0 +1,4 @@
+[debug] [bwparse-build] Classpath dependencies List()
+[debug] [bwparse-build] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'bwparse-build' to '/Users/carlcaulkett/Code/Java/BWParse/project/.bloop/bwparse-build.json'
+[success] Generated .bloop/bwparse-build.json
