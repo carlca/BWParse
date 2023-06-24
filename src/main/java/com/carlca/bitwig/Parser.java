@@ -3,9 +3,9 @@ package com.carlca.bitwig;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.charset.StandardCharsets;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import org.javatuples.Triplet;
 
 public class Parser {
 
@@ -27,31 +27,29 @@ public class Parser {
 			int pos = 0x36;
 			int size;
 			do {
-				Triplet<Integer, Integer, String> result = readKeyAndValue(file, pos, debug);
-				pos = result.getValue0();
-				size = result.getValue1();
+				ReadResult result = readKeyAndValue(file, pos, debug);
+				pos = result.getPos(); size = result.getSize();
 			} while (size != 0);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private static Triplet<Integer, Integer, String> readKeyAndValue(RandomAccessFile file, int pos, boolean debug) throws IOException {
+	private static ReadResult readKeyAndValue(RandomAccessFile file, int pos, boolean debug) throws IOException {
 		int size;
-		String text;
-		Triplet<Integer, Integer, String> result = new Triplet<>(0, 0, null);
+		byte[] data;
 		int skips = getSkipSize(file, pos);
 		if (debug) {
 			getSkipSizeDebug(file, pos);
 			System.out.printf("%d skips\n", skips);
 		}
 		pos += skips;
-		result = readNextSizeAndChunk(file, pos);
-		pos = result.getValue0(); size = result.getValue1(); text = result.getValue2();
+		ReadResult result = readNextSizeAndChunk(file, pos);
+		pos = result.getPos(); size = result.getSize(); data = result.getData();
 		if (size == 0) {
-			return new Triplet<Integer,Integer,String>(0, 0, null);
+			return new ReadResult();
 		}
-		printOutput(size, pos, text);
+		printOutput(size, pos, data);
 
 		skips = getSkipSize(file, pos);
 		if (debug) {
@@ -60,15 +58,14 @@ public class Parser {
 		}
 		pos += skips;
 		result = readNextSizeAndChunk(file, pos);
-		pos = result.getValue0(); size = result.getValue1(); text = result.getValue2();
-		printOutput(size, pos, text);
+		pos = result.getPos(); size = result.getSize(); data = result.getData();
+		printOutput(size, pos, data);
 		System.out.println();
-		return new Triplet<>(pos, size, null);
+		return new ReadResult(pos, size);
 	}
 
 	private static int getSkipSize(RandomAccessFile file, int pos) throws IOException {
-		Triplet<Integer, Integer, byte[]> newRead = readFromFile(file, pos, 32, false);
-		byte[] bytes = newRead.getValue2();
+		byte[] bytes = readFromFile(file, pos, 32, false).getData();
 		int[] check = new int[]{5, 8, 13};
 		for (int i = 0; i < bytes.length; i++) {
 			if ((bytes[i] >= 0x20) && (inArray(check, i & 255))) {
@@ -88,8 +85,7 @@ public class Parser {
 	}
 
 	private static void getSkipSizeDebug(RandomAccessFile file, int pos) throws IOException {
-		Triplet<Integer, Integer, byte[]> newRead = readFromFile(file, pos, 32, false);
-		byte[] bytes = newRead.getValue2();
+		byte[] bytes = readFromFile(file, pos, 32, false).getData();
 		for (byte b : bytes) {
 			System.out.printf("%02x ", b);
 		}
@@ -104,48 +100,44 @@ public class Parser {
 		System.out.println();
 	}
 
-	private static void printOutput(int size, int pos, String text) {
+	private static void printOutput(int size, int pos, byte[] data) {
 		System.out.printf("size: %x\n", size);
 		System.out.printf("stringPos: %x\n", pos);
-		System.out.println("text: " + text);
+		System.out.println("text: " + new String(data, StandardCharsets.UTF_8));
 	}
 
-	private static Triplet<Integer, Integer, String> readNextSizeAndChunk(RandomAccessFile file, int pos) throws IOException {
+	private static ReadResult readNextSizeAndChunk(RandomAccessFile file, int pos) throws IOException {
 		int size;
-		Triplet<Integer, Integer, String> intChunk;
-		intChunk = readIntChunk(file, pos);
-		pos = intChunk.getValue0(); size = intChunk.getValue1();
+		ReadResult intChunk = readIntChunk(file, pos);
+		pos = intChunk.getPos(); size = intChunk.getSize();
 		if (size == 0) {
-			return new Triplet<>(pos, 0, null);
+			return new ReadResult(pos, 0);
 		}
 		return readTextChunk(file, pos, size);
 	}
 
-	private static Triplet<Integer, Integer, String> readIntChunk(RandomAccessFile file, int pos) throws IOException {
-		Triplet<Integer, Integer, byte[]> newRead = readFromFile(file, pos, 4, true);
-		pos = newRead.getValue0();
-		byte[] chunk = newRead.getValue2();
+	private static ReadResult readIntChunk(RandomAccessFile file, int pos) throws IOException {
+		ReadResult newRead = readFromFile(file, pos, 4, true);
+		pos = newRead.getPos();
+		byte[] chunk = newRead.getData();
 		ByteBuffer buffer = ByteBuffer.wrap(chunk);
 		buffer.order(ByteOrder.BIG_ENDIAN);
 		int size = buffer.getInt();
-		return new Triplet<>(pos, size, null);
+		return new ReadResult(pos, size);
+		}
+
+	private static ReadResult readTextChunk(RandomAccessFile file, int pos, int size) throws IOException {
+		ReadResult newRead = readFromFile(file, pos, size, true);
+		return new ReadResult(newRead.getPos(), size, newRead.getData());
 	}
 
-	private static Triplet<Integer, Integer, String> readTextChunk(RandomAccessFile file, int pos, int size) throws IOException {
-		Triplet<Integer, Integer, byte[]> newRead = readFromFile(file, pos, size, true);
-		pos = newRead.getValue0();
-		byte[] chunk = newRead.getValue2();
-		String text = new String(chunk);
-		return new Triplet<>(pos, size, text);
-	}
-
-	private static Triplet<Integer, Integer, byte[]> readFromFile(RandomAccessFile file, int pos, int size, boolean advance) throws IOException {
+	private static ReadResult readFromFile(RandomAccessFile file, int pos, int size, boolean advance) throws IOException {
 		byte[] res = new byte[size];
 		file.seek(pos);
 		file.readFully(res);
 		if (advance) {
 			pos += size;
 		}
-		return new Triplet<>(pos, size, res);
+		return new ReadResult(pos, size, res);
 	}
 }

@@ -1,0 +1,30 @@
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 2 products, 2 sources, 0 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/main/java/com/carlca/bitwig/Parser.java, ${BASE}/src/main/java/com/carlca/bitwig/ReadResult.java)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(${BASE}/src/main/java/com/carlca/bitwig/ReadResult.java, ${BASE}/src/main/java/com/carlca/bitwig/Parser.java), unmodified = ...),Set(),Set(),API Changes: Set())[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial source changes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	removed: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	modified: Set(${BASE}/src/main/java/com/carlca/bitwig/ReadResult.java, ${BASE}/src/main/java/com/carlca/bitwig/Parser.java)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(com.carlca.bitwig.ReadResult, com.carlca.bitwig.Parser)[0m
+[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mall 2 sources are invalidated[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: com.carlca.bitwig.ReadResult, com.carlca.bitwig.Parser[0m
+[0m[[0m[0mdebug[0m] [0m[0mRecompiling all sources: number of invalidated sources > 50.0 percent of all sources[0m
+[0m[[0m[0mdebug[0m] [0m[0mcompilation cycle 1[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Java sources to /Users/carlcaulkett/Code/Java/BWParse/target/scala-3.3.0/classes ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mAttempting to call com.sun.tools.javac.api.JavacTool@39c60a30 directly...[0m
+[0m[[0m[0mdebug[0m] [0m[0mJava compilation took 0.275174917 s[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] classfile.Parser parsing com.carlca.bitwig.ReadResult[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] classfile.Parser parsing com.carlca.bitwig.Parser[0m
+[0m[[0m[0mdebug[0m] [0m[0mJava analysis took 0.033873166 s[0m
+[0m[[0m[0mdebug[0m] [0m[0mJava compilation + analysis took 0.314543792 s[0m
+[0m[[0m[0mdebug[0m] [0m[0mdone compiling[0m

@@ -8,7 +8,6 @@ javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 resolvers += "Maven Central" at "https://repo1.maven.org/maven2/"
 
 libraryDependencies ++= Seq(
-  "org.javatuples" % "javatuples" % "1.2",
 )
 
 // Define project structure

@@ -9,6 +9,13 @@
       "name": "Parser",
       "request": "launch",
       "mainClass": "com.carlca.bitwig.Parser",
+      "projectName": "ParseBitwigJava"
+    },
+    {
+      "type": "java",
+      "name": "Parser",
+      "request": "launch",
+      "mainClass": "com.carlca.bitwig.Parser",
       "projectName": "BWParse"
     },
     {
