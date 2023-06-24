@@ -1,3 +1,0 @@
-[0m[[0m[33mwarn[0m] [0m[0msource value 8 is obsolete and will be removed in a future release[0m
-[0m[[0m[33mwarn[0m] [0m[0mtarget value 8 is obsolete and will be removed in a future release[0m
-[0m[[0m[33mwarn[0m] [0m[0mTo suppress warnings about obsolete options, use -Xlint:-options.[0m
