@@ -9,8 +9,5 @@
         <module name="BWParse" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="BWParse" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="BWParse,bwparse_7211" />
+    <profile name="sbt 1" modules="bwparse_7211" />
+    <profile name="sbt 2" modules="BWParse">
+      <parameters>
+        <parameter value="-new-syntax" />
+        <parameter value="-rewrite" />
+      </parameters>
+    </profile>
   </component>
 </project>

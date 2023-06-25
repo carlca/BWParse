@@ -2,13 +2,13 @@
     "version": "1.4.0",
     "project": {
         "name": "root",
-        "directory": "/Users/carlcaulkett/Code/Java/BWParse",
-        "workspaceDir": "/Users/carlcaulkett/Code/Java/BWParse",
+        "directory": "/Users/carlcaulkett/Code/Scala/BWParse",
+        "workspaceDir": "/Users/carlcaulkett/Code/Scala/BWParse",
         "sources": [
-            "/Users/carlcaulkett/Code/Java/BWParse/src/main/scala",
-            "/Users/carlcaulkett/Code/Java/BWParse/src/main/scala-3",
-            "/Users/carlcaulkett/Code/Java/BWParse/src/main/java",
-            "/Users/carlcaulkett/Code/Java/BWParse/target/scala-3.3.0/src_managed/main"
+            "/Users/carlcaulkett/Code/Scala/BWParse/src/main/scala",
+            "/Users/carlcaulkett/Code/Scala/BWParse/src/main/scala-3",
+            "/Users/carlcaulkett/Code/Scala/BWParse/src/main/java",
+            "/Users/carlcaulkett/Code/Scala/BWParse/target/scala-3.3.0/src_managed/main"
         ],
         "dependencies": [
             
@@ -17,18 +17,19 @@
             "/Users/carlcaulkett/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.0/scala3-library_3-3.3.0.jar",
             "/Users/carlcaulkett/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar"
         ],
-        "out": "/Users/carlcaulkett/Code/Java/BWParse/.bloop/root",
-        "classesDir": "/Users/carlcaulkett/Code/Java/BWParse/.bloop/root/scala-3/classes",
+        "out": "/Users/carlcaulkett/Code/Scala/BWParse/.bloop/root",
+        "classesDir": "/Users/carlcaulkett/Code/Scala/BWParse/.bloop/root/scala-3/classes",
         "resources": [
-            "/Users/carlcaulkett/Code/Java/BWParse/src/main/resources",
-            "/Users/carlcaulkett/Code/Java/BWParse/target/scala-3.3.0/resource_managed/main"
+            "/Users/carlcaulkett/Code/Scala/BWParse/src/main/resources",
+            "/Users/carlcaulkett/Code/Scala/BWParse/target/scala-3.3.0/resource_managed/main"
         ],
         "scala": {
             "organization": "org.scala-lang",
             "name": "scala-compiler",
             "version": "3.3.0",
             "options": [
-                
+                "-indent",
+                "-rewrite"
             ],
             "jars": [
                 "/Users/carlcaulkett/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.3.0/scala3-library_3-3.3.0.jar",
@@ -85,10 +86,7 @@
         },
         "java": {
             "options": [
-                "-source",
-                "1.8",
-                "-target",
-                "1.8"
+                
             ]
         },
         "test": {
@@ -145,7 +143,7 @@
             "config": {
                 "home": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home",
                 "options": [
-                    "-Duser.dir=/Users/carlcaulkett/Code/Java/BWParse"
+                    "-Duser.dir=/Users/carlcaulkett/Code/Scala/BWParse"
                 ]
             },
             "mainClass": [

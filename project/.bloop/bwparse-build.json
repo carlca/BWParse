@@ -2,15 +2,15 @@
     "version": "1.4.0",
     "project": {
         "name": "bwparse-build",
-        "directory": "/Users/carlcaulkett/Code/Java/BWParse/project",
-        "workspaceDir": "/Users/carlcaulkett/Code/Java/BWParse/project",
+        "directory": "/Users/carlcaulkett/Code/Scala/BWParse/project",
+        "workspaceDir": "/Users/carlcaulkett/Code/Scala/BWParse/project",
         "sources": [
-            "/Users/carlcaulkett/Code/Java/BWParse/project/src/main/scala",
-            "/Users/carlcaulkett/Code/Java/BWParse/project/src/main/scala-2.12",
-            "/Users/carlcaulkett/Code/Java/BWParse/project/src/main/scala-2",
-            "/Users/carlcaulkett/Code/Java/BWParse/project/src/main/java",
-            "/Users/carlcaulkett/Code/Java/BWParse/project/src/main/scala-sbt-1.0",
-            "/Users/carlcaulkett/Code/Java/BWParse/project/target/scala-2.12/sbt-1.0/src_managed/main"
+            "/Users/carlcaulkett/Code/Scala/BWParse/project/src/main/scala",
+            "/Users/carlcaulkett/Code/Scala/BWParse/project/src/main/scala-2.12",
+            "/Users/carlcaulkett/Code/Scala/BWParse/project/src/main/scala-2",
+            "/Users/carlcaulkett/Code/Scala/BWParse/project/src/main/java",
+            "/Users/carlcaulkett/Code/Scala/BWParse/project/src/main/scala-sbt-1.0",
+            "/Users/carlcaulkett/Code/Scala/BWParse/project/target/scala-2.12/sbt-1.0/src_managed/main"
         ],
         "dependencies": [
             
@@ -103,11 +103,11 @@
             "/Users/carlcaulkett/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar",
             "/Users/carlcaulkett/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/typesafe/config/1.4.2/config-1.4.2.jar"
         ],
-        "out": "/Users/carlcaulkett/Code/Java/BWParse/project/.bloop/bwparse-build",
-        "classesDir": "/Users/carlcaulkett/Code/Java/BWParse/project/.bloop/bwparse-build/scala-2.12/sbt-1.0/classes",
+        "out": "/Users/carlcaulkett/Code/Scala/BWParse/project/.bloop/bwparse-build",
+        "classesDir": "/Users/carlcaulkett/Code/Scala/BWParse/project/.bloop/bwparse-build/scala-2.12/sbt-1.0/classes",
         "resources": [
-            "/Users/carlcaulkett/Code/Java/BWParse/project/src/main/resources",
-            "/Users/carlcaulkett/Code/Java/BWParse/project/target/scala-2.12/sbt-1.0/resource_managed/main"
+            "/Users/carlcaulkett/Code/Scala/BWParse/project/src/main/resources",
+            "/Users/carlcaulkett/Code/Scala/BWParse/project/target/scala-2.12/sbt-1.0/resource_managed/main"
         ],
         "scala": {
             "organization": "org.scala-lang",
@@ -204,7 +204,7 @@
             "config": {
                 "home": "/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home",
                 "options": [
-                    "-Duser.dir=/Users/carlcaulkett/Code/Java/BWParse/project"
+                    "-Duser.dir=/Users/carlcaulkett/Code/Scala/BWParse/project"
                 ]
             },
             "mainClass": [
