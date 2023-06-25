@@ -58,7 +58,9 @@ object Parser:
     pos2 += skips
     
     result = readNextSizeAndChunk(file, pos2)
-    pos2 = result.getPos; size = result.getSize; data = result.getData.get
+    pos2 = result.getPos; size = result.getSize; 
+    if result.getData.isEmpty then return new ReadResult()
+    data = result.getData.get
     printOutput(size, pos2, data)
 
     System.out.println()
