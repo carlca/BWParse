@@ -23,6 +23,7 @@ object Parser:
     else 
       val debug = args.length == 2 && args(1) == "debug"
       processPreset(args(0), debug)
+  end main
     
   private def generateDummyOutput(): Unit = System.out.println()
 
@@ -35,6 +36,7 @@ object Parser:
       result.getSize != 0
     do ()
     if file != null then file.close()
+  end processPreset
 
   @throws[IOException]
   private def readKeyAndValue(file: RandomAccessFile, pos: Int, debug: Boolean): ReadResult =
@@ -65,6 +67,7 @@ object Parser:
 
     System.out.println()
     new ReadResult(pos2, size)
+  end readKeyAndValue
 
   @throws[IOException]
   private def getSkipSize(file: RandomAccessFile, pos: Int): Int =
@@ -74,6 +77,7 @@ object Parser:
       case i if bytes(i) >= 0x20 && check.contains(i & 255) => i - 4
     .getOrElse: 
       1
+  end getSkipSize
 
   @throws[IOException]
   private def getSkipSizeDebug(file: RandomAccessFile, pos: Int): Unit =
@@ -85,11 +89,13 @@ object Parser:
       if b >= 0x41 then System.out.printf(".%c.", b)
       else System.out.print("   ")
     System.out.println()
+  end getSkipSizeDebug
 
   private def printOutput(size: Int, pos: Int, data: Array[Byte]): Unit =
     System.out.printf("size: %x\n", size)
     System.out.printf("stringPos: %x\n", pos)
     System.out.println("text: " + new String(data, StandardCharsets.UTF_8))
+  end printOutput
 
   @throws[IOException]
   private def readNextSizeAndChunk(file: RandomAccessFile, pos: Int): ReadResult =
@@ -98,11 +104,13 @@ object Parser:
     var size = intChunk.getSize
     if size == 0 then return new ReadResult(pos2, 0)
     readFromFile(file, pos2, size, true)
+  end readNextSizeAndChunk
 
   @throws[IOException]
   private def readIntChunk(file: RandomAccessFile, pos: Int): ReadResult =
     val newRead = readFromFile(file, pos, 4, true)
     new ReadResult(newRead.getPos, ByteBuffer.wrap(newRead.getData.get).getInt)
+  end readIntChunk
 
   @throws[IOException]
   private def readFromFile(file: RandomAccessFile, pos: Int, size: Int, advance: Boolean): ReadResult =
@@ -113,6 +121,7 @@ object Parser:
     catch case e: IOException => return new ReadResult()
     if advance then pos2 += size
     new ReadResult(pos2, size, Option(res))
+  end readFromFile
 
 end Parser  
 

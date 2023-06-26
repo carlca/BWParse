@@ -5,8 +5,8 @@
     "request": "launch",
     "name": "Debug",
     "mainClass": "com.carlca.bitwig.Parser",
-    "args": ["${workspaceFolder}/Diffusion.bwpreset"],
-    // "args": ["${workspaceFolder}/Binaural_Organ_Device.bwpreset"],
+    // "args": ["${workspaceFolder}/daisy_chords.bwclip"],
+    "args": ["${workspaceFolder}/Binaural_Organ_Device.bwpreset"],
     "jvmOptions": ["-Xmx1G"]
   },
   {
@@ -14,8 +14,8 @@
     "request": "launch",
     "name": "Debug+Dump",
     "mainClass": "com.carlca.bitwig.Parser",
-    "args": ["${workspaceFolder}/Diffusion.bwpreset", "debug"],
-    // "args": ["${workspaceFolder}/Binaural_Organ_Device.bwpreset", "debug"],
+    // "args": ["${workspaceFolder}/daisy_chords.bwclip", "debug"],
+    "args": ["${workspaceFolder}/Binaural_Organ_Device.bwpreset", "debug"],
     "jvmOptions": ["-Xmx1G"]
   }
   ]
